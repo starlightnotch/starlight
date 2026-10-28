@@ -17,6 +17,10 @@
 
 ---
 
+<p align="center">
+  <img src="docs/media/hero.gif" width="100%" alt="Starlight in the notch: asking a question out loud, then dictating">
+</p>
+
 > **Just want the app?** [Download Starlight free at starlightnotch.com](https://starlightnotch.com).
 > It's ready to go: signed by Apple, updates itself, nothing to build.
 >
@@ -25,13 +29,31 @@
 
 ## What it does
 
-**Dictation: press ⌃ Space, talk, press it again.** Your words appear wherever you're typing,
-cleaned up, and on your clipboard too. It all runs on your Mac: no account, no internet, no limit,
-and your voice never leaves it.
+### Dictation: press ⌃ Space, talk, press it again
 
-**Live mode: press ⌥ Space and talk to your Mac.** Ask anything and the answer shows in the notch.
-Or have it do things: open apps, turn on dark mode, change the volume, set a reminder. Live mode
-uses the AI you bring (see below).
+Your words appear wherever you're typing, cleaned up, and on your clipboard too. It all runs on
+your Mac: no account, no internet, no limit, and your voice never leaves it.
+
+<p align="center">
+  <img src="docs/media/dictation.gif" width="100%" alt="Dictating a bug report into Claude Code">
+</p>
+
+### Live mode: press ⌥ Space and talk to your Mac
+
+Ask anything and the answer shows in the notch. Or have it do things: open apps, add reminders,
+turn on dark mode, change the volume. Live mode uses the AI you bring (see below).
+
+<p align="center">
+  <img src="docs/media/live.gif" width="100%" alt="Live mode converting currency, adding a reminder and opening Spotify">
+</p>
+
+### The notch, reimagined
+
+What's playing, your AirPods' battery, and everything above, right where the camera is.
+
+<p align="center">
+  <img src="docs/media/music.gif" width="100%" alt="Now Playing in the notch">
+</p>
 
 Both shortcuts can be changed, and each can work as a toggle or as hold-to-talk.
 
@@ -67,6 +89,10 @@ you use; Starlight adds nothing.
 
 Don't want to manage keys? **[Starlight Pro](https://starlightnotch.com/pricing)** has the AI built
 in, plus the features that aren't in this version:
+
+<p align="center">
+  <img src="docs/media/meetings.gif" width="100%" alt="Starlight answering a question during a meeting">
+</p>
 
 - **Meeting notes:** both sides of every call, written down, with answers as questions come up
 - **Tasks and memory:** it keeps your to-dos and remembers what you tell it
