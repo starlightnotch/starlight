@@ -1,0 +1,15 @@
+Starlight.app/
+Notch.app/
+Starlight.app/
+.DS_Store
+__pycache__/
+.build/
+Vendor/
+dist/
+ProductShots/
+website-preview/
+.claude/*
+!.claude/skills/
+/xcstringstool
+.vercel
+.env*

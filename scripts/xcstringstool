@@ -1,0 +1,77 @@
+#!/usr/bin/python3 -I
+# Stand-in for Xcode's xcstringstool, which the Command Line Tools don't ship.
+# Handles plain string catalogs (no plural variations):
+#   compile [--dry-run] --output-directory DIR FILE   -> <lang>.lproj/<name>.strings
+#   generate-symbols --output-directory DIR FILE      -> GeneratedStringSymbols_<name>.swift
+#     (empty: Xcode only generates symbols for manually managed strings, and Clerk has none)
+import json
+import os
+import sys
+
+
+def parse(argv):
+    if not argv or argv[0] not in ("compile", "generate-symbols"):
+        sys.exit(f"xcstringstool shim: unsupported command {argv[:1]}")
+    dry_run, out_dir, inputs, i = False, None, [], 1
+    while i < len(argv):
+        arg = argv[i]
+        if arg == "--dry-run":
+            dry_run = True
+        elif arg == "--output-directory":
+            i += 1
+            out_dir = argv[i]
+        elif arg.startswith("--"):
+            # Flags with a value (e.g. --language) are not needed here; skip the value too.
+            if i + 1 < len(argv) and not argv[i + 1].startswith("--") and not argv[i + 1].endswith(".xcstrings"):
+                i += 1
+        else:
+            inputs.append(arg)
+        i += 1
+    if not out_dir or not inputs:
+        sys.exit("xcstringstool shim: need --output-directory and an .xcstrings file")
+    return argv[0], dry_run, out_dir, inputs
+
+
+def escape(s):
+    return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")
+
+
+def tables(path):
+    catalog = json.load(open(path, encoding="utf-8"))
+    source = catalog.get("sourceLanguage", "en")
+    by_lang = {}
+    for key, entry in catalog.get("strings", {}).items():
+        locs = entry.get("localizations", {})
+        langs = set(locs) | {source}
+        for lang in langs:
+            unit = locs.get(lang, {}).get("stringUnit")
+            value = unit["value"] if unit else (key if lang == source else None)
+            if value is not None:
+                by_lang.setdefault(lang, {})[key] = value
+    return by_lang
+
+
+def main():
+    command, dry_run, out_dir, inputs = parse(sys.argv[1:])
+    for path in inputs:
+        name = os.path.splitext(os.path.basename(path))[0]
+        if command == "generate-symbols":
+            out = os.path.join(out_dir, f"GeneratedStringSymbols_{name}.swift")
+            print(out)
+            if not dry_run:
+                os.makedirs(out_dir, exist_ok=True)
+                with open(out, "w", encoding="utf-8") as f:
+                    f.write("import Foundation\n")
+            continue
+        for lang, strings in sorted(tables(path).items()):
+            out = os.path.join(out_dir, f"{lang}.lproj", f"{name}.strings")
+            print(out)
+            if dry_run:
+                continue
+            os.makedirs(os.path.dirname(out), exist_ok=True)
+            with open(out, "w", encoding="utf-8") as f:
+                for key, value in sorted(strings.items()):
+                    f.write(f'"{escape(key)}" = "{escape(value)}";\n')
+
+
+main()

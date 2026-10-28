@@ -1,0 +1,58 @@
+/* Notch Big Answers — generated from tokens.json */
+:root, [data-theme="dark"] {
+  --notch: #000000;
+  --ink: #ffffff;
+  --ink-code: rgba(255, 255, 255, 0.85);
+  --ink-secondary: rgba(255, 255, 255, 0.55);
+  --ink-tertiary: rgba(255, 255, 255, 0.45);
+  --ink-faint: rgba(255, 255, 255, 0.35);
+  --fill-quiet: rgba(255, 255, 255, 0.07);
+  --fill-hover: rgba(255, 255, 255, 0.12);
+  --fill-strong: rgba(255, 255, 255, 0.92);
+  --on-fill-strong: #000000;
+  --hairline: rgba(255, 255, 255, 0.08);
+  --surface-row: #121212;
+  --success: #30c759;
+  --danger: #ff453b;
+  --desktop-top: #dfe6f7;
+  --desktop-bottom: #f6e6df;
+  --notch-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+  --window-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+:root {
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-14: 14px;
+  --space-16: 16px;
+  --space-28: 28px;
+  --space-64: 64px;
+  --radius-notch-closed: 10px;
+  --radius-notch-open: 36px;
+  --radius-flare: 20px;
+  --radius-row: 12px;
+  --radius-card: 16px;
+  --radius-tile: 20px;
+  --radius-window: 22px;
+  --radius-pill: 999px;
+  --answer-width: 460px;
+  --long-answer-width: 580px;
+  --picture: 64px;
+  --item-icon: 46px;
+  --badge: 20px;
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, sans-serif;
+  --font-rounded: ui-rounded, "SF Pro Rounded", -apple-system, system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+}
+.headline { font-family: var(--font-sans); font-size: 22px; line-height: 27px; font-weight: 600; }
+.outcome { font-family: var(--font-sans); font-size: 15px; line-height: 20px; font-weight: 600; }
+.detail { font-family: var(--font-sans); font-size: 12.5px; line-height: 16px; font-weight: 400; }
+.verb { font-family: var(--font-sans); font-size: 12.5px; line-height: 16px; font-weight: 500; }
+.answer { font-family: var(--font-sans); font-size: 13px; line-height: 17px; font-weight: 400; }
+.clock { font-family: var(--font-rounded); font-size: 34px; line-height: 40px; font-weight: 600; }
+.status { font-family: var(--font-sans); font-size: 12px; line-height: 16px; font-weight: 400; }
+.label { font-family: var(--font-sans); font-size: 11.5px; line-height: 14px; font-weight: 600; }
+.done-title { font-family: var(--font-sans); font-size: 30px; line-height: 34px; font-weight: 700; }
+.command { font-family: var(--font-mono); font-size: 12px; line-height: 16px; font-weight: 400; }
+.page-title { font-family: var(--font-sans); font-size: 44px; line-height: 50px; font-weight: 700; }
+.section-title { font-family: var(--font-sans); font-size: 22px; line-height: 28px; font-weight: 700; }
+.body { font-family: var(--font-sans); font-size: 15px; line-height: 21px; font-weight: 400; }

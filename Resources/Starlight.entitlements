@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  What the hardened runtime (required for notarization) has to let through. Each one still asks
+  you first; these only allow macOS to ask.
+-->
+<plist version="1.0">
+<dict>
+    <!-- Dictation, Live mode, your side of meetings. -->
+    <key>com.apple.security.device.audio-input</key>
+    <true/>
+    <!-- Now Playing (Spotify, Music, your browser) and actions in other apps. -->
+    <key>com.apple.security.automation.apple-events</key>
+    <true/>
+    <!-- Reminders: adding to-dos when you ask. -->
+    <key>com.apple.security.personal-information.calendars</key>
+    <true/>
+</dict>
+</plist>
